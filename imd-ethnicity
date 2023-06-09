@@ -1,0 +1,49 @@
+ethn <- read.csv("/Users/lucy/Desktop/LSHTM/Summer Project/datasets/imd-and-domains-of-deprivation.csv")
+# available at: 
+# https://www.ethnicity-facts-figures.service.gov.uk/uk-population-by-ethnicity/demographics/people-living-in-deprived-neighbourhoods/latest#most-deprived-10-of-neighbourhoods-by-type-of-deprivation-and-ethnicity
+
+all_vec <- ethn$Numerator[1:10] # size of population in each IMD decile
+
+ethn <- ethn[ethn$Domain == 'Index of Multiple Deprivation',] # specifying only IMD
+ethn <- ethn[ethn$Ethnicity != 'All',]
+ethn <- ethn[ethn$Ethnicity != 'Any other',]
+
+ethn$Decile <- as.character(ethn$Decile)
+ethn$Decile <- factor(ethn$Decile, levels=unique(ethn$Decile))
+
+ethn$Proportion <- rep.int(NA,nrow(ethn))
+
+for(i in 0:(nrow(ethn)/10 - 1)){
+  for(j in 1:10){
+    ethn$Proportion[10*i + j] <- ethn$Numerator[10*i + j]/all_vec[j]
+  }
+}
+
+ggplot(ethn[ethn$Ethnicity %in% c('Asian','Black','Mixed','White','Other'),], 
+       aes(x=Decile, y=Proportion, group=Ethnicity, fill=Ethnicity)) + 
+  geom_area() + theme_minimal() + scale_fill_brewer(palette='RdPu') +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplot(ethn[ethn$Ethnicity %in% c('Asian','Black','Mixed','White','Other'),], 
+       aes(x=Decile, y=Proportion, group=Ethnicity, colour=Ethnicity)) + 
+  geom_line(lwd=1) + geom_point() + theme_minimal() + scale_colour_brewer(palette='RdPu') +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+ggplot(ethn[ethn$Ethnicity %in% c('Asian','Black','Mixed','White','Other'),], 
+       aes(x=Decile, y=Value, group=Ethnicity, colour=Ethnicity)) + 
+  geom_line(lwd=1) + geom_point() + theme_minimal() + scale_colour_brewer(palette='Set1') +
+  ylab("Proportion of ethnicity in IMD decile (%)") + xlab("IMD Decile") +
+  geom_hline(yintercept=10, linetype="dashed", color = "black") +
+  theme(panel.background = element_rect(fill = "white",color=NA),
+        panel.grid = element_blank(),
+        panel.grid.major.x = element_line(color = "#A8BAC4", size = 0.07),
+        panel.grid.major.y = element_line(color = "#A8BAC4", size = 0.1),
+        panel.grid.minor.y = element_line(color = "#A8BAC4", size = 0.1),
+        axis.ticks.length.y = unit(0, "mm"), 
+        axis.ticks.length.x = unit(0, "mm")) + 
+  scale_x_discrete(labels=c('Most deprived','2','3','4','5','6','7','8','9','Least deprived')) +
+  ylim(c(0,23))
+  
+
+
+

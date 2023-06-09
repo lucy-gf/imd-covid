@@ -1,4 +1,3 @@
-
 deciles <- read.csv("/Users/lucy/Desktop/LSHTM/Summer Project/datasets/healthdatatables20211.csv",skip=4)
 # found at:
 # https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandwellbeing/datasets/generalhealthbyagesexanddeprivationenglandandwales

@@ -1,31 +1,7 @@
 #install.packages("deSolve")
 require(deSolve)
 
-# ** RELOADING DATA **
-
-final_v2_dataframe <- read.csv("/Users/lucy/Desktop/LSHTM/Summer Project/MY DATASETS/clin_frac.csv")
-final_v2_dataframe$Ageband <- factor(final_v2_dataframe$Ageband, levels=unique(final_v2_dataframe$Ageband))
-rural_age <- read.csv("/Users/lucy/Desktop/LSHTM/Summer Project/MY DATASETS/age_distr.csv")
-rural_age$Age <- factor(rural_age$Age, levels=unique(rural_age$Age))
-urban_IMD_distr <- read.csv("/Users/lucy/Desktop/LSHTM/Summer Project/MY DATASETS/urban_IMD_distr.csv")
-
-# ** CONTACT MATRIX FUNCTION **
-G <- read.csv("/Users/lucy/Desktop/LSHTM/Summer Project/MY DATASETS/G.csv")
-final_matrix <- function(i, u){
-  final_matrix <- matrix(nrow=17, ncol=17)
-  character <- 'Urban'
-  if(u == F){
-    character <- 'Rural'
-  }
-  vec <- rural_age$Population[rural_age$IMD == i & 
-                                rural_age$rural == character]
-  for(i in 1:17){
-    for(j in 1:17){
-      final_matrix[i,j] = G[i,j]*vec[j]/sum(vec)
-    }
-  }
-  return(final_matrix)
-}
+source("~/Desktop/MSc/Summer Project/R Code/loading_data.R")
 
 # ** THE MODEL **
 
@@ -116,8 +92,24 @@ epidemic <- function(i, u){  # i = IMD decile, u = urban (T)/rural (F)
 }
 
 
-# plotting each epidemic, E and Ip removed for simplicity:
+# plot of an epidemic
 
-matplot(epidemic(1, F)[,c(2,5,6,7,8)], type="l", lty=1, main="SEIR model", xlab="Time",col=2:8, ylab='Proportion')
-legend <- colnames(epidemic(1, T))[c(2,5,6,7,8)]
-legend("right", legend=legend, col=2:8, lty = 1)
+# matplot(epidemic(3, T)[1:120,2:8], type="l", lty=1, lwd=2, 
+#         xlab="Day of outbreak",col=c(2:7,1), 
+#         ylab='Proportion of population')
+# legend <- colnames(epidemic(1, T))[2:8]
+# legend("right", legend=legend, col=c(2:7,1), 
+#        lty=1, lwd=2)
+
+
+
+
+
+
+
+
+
+
+
+
+

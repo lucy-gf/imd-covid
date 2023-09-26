@@ -188,23 +188,6 @@ for(k in 1:200){
 #write.csv(epi_data, "/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/epi_sensitivity.csv", row.names=F)
 epi_data <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/epi_sensitivity.csv")
 
-ggplot(data=epi_data, aes(x=imd, y=1000*cases, group=a, col=a)) +
-  geom_line() + theme_minimal() + scale_color_viridis() + 
-  scale_x_continuous(breaks=1:10) +
-  facet_grid(.~urban) + ylim(c(0,1000))
-
-ggplot(data=epi_data, aes(x=imd, y=1000*clin_cases, group=a, col=a)) +
-  geom_line() + theme_minimal() + scale_color_viridis() + 
-  scale_x_continuous(breaks=1:10) + 
-  scale_y_continuous(limits=c(0,550),breaks=seq(0,550,by=50)) +
-  facet_grid(.~urban)
-
-ggplot(data=epi_data, aes(x=imd, y=1000*deaths, group=a, col=a)) +
-  geom_line() + theme_minimal() +scale_color_viridis() + 
-  geom_line(aes(x=imd, y=1000*deaths_as, group=a, col=a),lty=2) + 
-  scale_x_continuous(breaks=1:10) + scale_y_continuous(limits=c(0,15),breaks=0:15) + 
-  facet_grid(.~urban)
-
 epi_data_NA <- epi_data
 colnames(epi_data_NA)[7] <- "deaths"
 epi_data_2 <- rbind(epi_data_NA[,c(1,2,3,6)],epi_data_NA[,c(1,2,3,7)])

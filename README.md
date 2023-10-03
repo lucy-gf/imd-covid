@@ -1,3 +1,3 @@
 # imd-covid
 
-R code files for project.
+R code files for SES paper.

@@ -54,3 +54,12 @@ for(i in 1:17){
 age_standard_all$age <- factor(age_standard_all$age, levels=unique(age_standard_all$age))
 age_standard_all$prop <- as.numeric(age_standard_all$prop)
 
+contact_constant <- matrix(nrow=17, ncol=17)
+vec <- age_standard_all$prop
+for(i in 1:17){
+  for(j in 1:17){
+    contact_constant[i,j] = G[i,j]*vec[j]/sum(vec)
+  }
+}
+
+

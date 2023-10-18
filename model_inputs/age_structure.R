@@ -120,7 +120,7 @@ ggplot(rural_age, aes(x=Age, y=Proportion, group=IMD, color=IMD)) +
   theme(strip.text.x = element_text(size = 14, face = "bold"),
         axis.text.x = element_text(angle = 90))
 
-#write.csv(rural_age, "/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/age_distr.csv", row.names=F)
+#write.csv(rural_age, "/rural_age.csv", row.names=F)
 
 #___________________________________________________________________________________________________
 
@@ -154,7 +154,7 @@ urban_IMD_distr$Rural_frac <- urban_IMD_distr$Rural_pop/(urban_IMD_distr$Urban_p
 #         axis.ticks.length.y = unit(0, "mm"), 
 #         axis.ticks.length.x = unit(0, "mm"))
 
-#write.csv(urban_IMD_distr, "/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/urban_IMD_distr.csv", row.names=F)
+#write.csv(urban_IMD_distr, "/urban_IMD_distr.csv", row.names=F)
 
 
 #________________________________________________________________________________________
@@ -203,8 +203,7 @@ ggplot(data, aes(x=imd, y=median, group=urban, col=urban)) +
         axis.text.y = element_text(color=1))
   
 
-#write.csv(data, "/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/medians.csv", row.names=F)
-#data <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/medians.csv")
+#write.csv(data, "/medians.csv", row.names=F)
 
 
 

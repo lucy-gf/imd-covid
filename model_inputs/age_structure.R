@@ -1,8 +1,8 @@
 
-LSOAs <- read_excel("/Users/lucy/Desktop/MSc/Summer Project/datasets/LSOApop2020.xlsx",sheet=4,skip=4)
+LSOAs <- read_excel("/datasets/LSOApop2020.xlsx",skip=4)
 # from: https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/lowersuperoutputareamidyearpopulationestimates
 
-rural <- read_excel("/Users/lucy/Desktop/MSc/Summer Project/datasets/Rural_Urban_Classification_2011_lookup_tables_for_small_area_geographies.xlsx",sheet=3,skip=2)
+rural <- read_excel("/datasets/Rural_Urban_Classification_2011_lookup_tables_for_small_area_geographies.xlsx",sheet=3,skip=2)
 #from https://www.gov.uk/government/statistics/2011-rural-urban-classification-lookup-tables-for-all-geographies
 
 # data cleaning: removing Wales
@@ -33,7 +33,7 @@ sum(LSOAs$`All Ages`[LSOAs$rural=='Rural']) # 9,683,314
 
 #attaching IMD deciles
 
-IMDLSOA <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/datasets/Lower_Super_Output_Area_(LSOA)_IMD_2019__(OSGB1936).csv")
+IMDLSOA <- read.csv("/datasets/Lower_Super_Output_Area_(LSOA)_IMD_2019__(OSGB1936).csv")
 # 2019 IMD classification of LSOAs
 # from: https://data-communities.opendata.arcgis.com/datasets/d4b79be994ac4820ad44e10ded313df3_0/explore 
 LSOAs$IMD_decile <- rep.int(NA,nrow(LSOAs))

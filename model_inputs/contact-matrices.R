@@ -45,9 +45,9 @@ for(i in 1:17){
   }
 }
 
-#write.csv(G, "/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/G.csv", row.names=F)
+#write.csv(G, "/G.csv", row.names=F)
 
-rural_age <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/age_distr.csv")
+rural_age <- read.csv("/rural_age.csv")
 rural_age$Age <- as.character(rural_age$Age)
 rural_age$Age <- factor(rural_age$Age, levels=unique(rural_age$Age))
 

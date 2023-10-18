@@ -1,5 +1,5 @@
 
-deciles <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/datasets/healthdatatables20211.csv",skip=4)
+deciles <- read.csv("/datasets/healthdatatables20211.csv",skip=4)
 # found at:
 # https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandwellbeing/datasets/generalhealthbyagesexanddeprivationenglandandwales
 deciles <- deciles[,1:11] #removing empty columns

@@ -3,13 +3,13 @@ require(deSolve)
 
 # loading necessary data
 
-final_v2_dataframe <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/clin_frac.csv")
+final_v2_dataframe <- read.csv("/clin_frac.csv")
 final_v2_dataframe$Ageband <- factor(final_v2_dataframe$Ageband, levels=unique(final_v2_dataframe$Ageband))
 
-rural_age <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/age_distr.csv")
+rural_age <- read.csv("/age_distr.csv")
 rural_age$Age <- factor(rural_age$Age, levels=unique(rural_age$Age))
 
-G <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/G.csv")
+G <- read.csv("/G.csv")
 final_matrix <- function(i, u){
   final_matrix <- matrix(nrow=17, ncol=17)
   character <- 'Urban'
@@ -26,10 +26,10 @@ final_matrix <- function(i, u){
   return(final_matrix)
 }
 
-urban_IMD_distr <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/urban_IMD_distr.csv")
+urban_IMD_distr <- read.csv("/urban_IMD_distr.csv")
 
-results <- read_csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/results.csv")
-results_age_standard <- read_csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/results_age_standard.csv")
+results <- read_csv("/results.csv")
+results_age_standard <- read_csv("/results_age_standard.csv")
 
 age_standard <- data.frame(age=rep(rural_age$Age[1:17],2),
                            urban=c(rep(T,17),rep(F,17)),

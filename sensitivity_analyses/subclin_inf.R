@@ -3,7 +3,7 @@ require(deSolve)
 
 # ** RELOADING DATA **
 
-source("~/Desktop/MSc/Summer Project/R Code/loading_data.R")
+source("~/loading_data.R")
 
 # ** THE MODEL **
 
@@ -199,9 +199,6 @@ for(k in 1:220){
 for(k in 1:220){
   xi_data$deaths_as[k] <- sum(epidemic_age_standard(xi_data$imd[k],xi_data$urban[k],xi_data$xi[k])[366,104:120]*age_standard$prop[1:17 + 17*(1-xi_data$urban[k])]/rural_age$Proportion[1:17 + 17*(xi_data$imd[k]-1) + 170*(1-xi_data$urban[k])])
 }
-
-#write.csv(xi_data, "/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/xi_sensitivity.csv", row.names=F)
-xi_data <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/xi_sensitivity.csv")
 
 xi_plot <- ggplot(data=xi_data, aes(x=imd, y=1000*deaths, group=xi, col=xi)) +
   geom_line() + theme_minimal() + scale_color_viridis(breaks=seq(0,1,0.2)) + 

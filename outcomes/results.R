@@ -50,8 +50,6 @@ for(k in 1:20){
   results$c[k] <- clinical(results$i[k], results$u[k])
 }
 results$prop_dead <- results$d/results$n
-#write.csv(results, "/Users/lucy/Desktop/LSHTM/Summer Project/MY DATASETS/results.csv", row.names=F)
-#results <- read_csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/results.csv")
 
 
 
@@ -85,8 +83,6 @@ for(k in 1:20){
   results_age_standard$c[k] <- clinical_standardised(results$i[k], results$u[k])
 }
 results_age_standard$prop_dead <- results_age_standard$d/results_age_standard$n
-#write.csv(results_age_standard, "/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/results_age_standard.csv", row.names=F)
-#results_age_standard <- read_csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/results_age_standard.csv")
 
 death2 <- ggplot(results_age_standard, aes(x=i, y=d*1000, group=u, color=u)) + 
   geom_line(lwd=0.8, lty=2) + scale_color_brewer(palette='Set1',

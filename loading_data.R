@@ -6,7 +6,7 @@ require(deSolve)
 final_v2_dataframe <- read.csv("/clin_frac.csv")
 final_v2_dataframe$Ageband <- factor(final_v2_dataframe$Ageband, levels=unique(final_v2_dataframe$Ageband))
 
-rural_age <- read.csv("/age_distr.csv")
+rural_age <- read.csv("/rural_age.csv")
 rural_age$Age <- factor(rural_age$Age, levels=unique(rural_age$Age))
 
 G <- read.csv("/G.csv")

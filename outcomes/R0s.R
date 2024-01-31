@@ -1,4 +1,4 @@
-source("~/Desktop/MSc/Summer Project/R Code/loading_data.R")
+source("~/loading_data.R")
 
 epidemic_R0 <- function(i, u, a){
   

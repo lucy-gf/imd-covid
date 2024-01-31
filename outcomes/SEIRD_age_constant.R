@@ -3,7 +3,7 @@ require(deSolve)
 
 # ** RELOADING DATA **
 
-source("~/Desktop/MSc/Summer Project/R Code/loading_data.R")
+source("~/loading_data.R")
 
 # ** THE MODEL **
 

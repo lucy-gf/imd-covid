@@ -1,4 +1,4 @@
-ethn <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/datasets/imd-and-domains-of-deprivation.csv")
+ethn <- read.csv("/imd-and-domains-of-deprivation.csv")
 # available at: 
 # https://www.ethnicity-facts-figures.service.gov.uk/uk-population-by-ethnicity/demographics/people-living-in-deprived-neighbourhoods/latest#most-deprived-10-of-neighbourhoods-by-type-of-deprivation-and-ethnicity
 

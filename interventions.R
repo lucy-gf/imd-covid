@@ -1,6 +1,6 @@
 # ** RELOADING DATA **
 
-source("~/Desktop/MSc/Summer Project/R Code/SEIRD model.R")
+source("~/SEIRD model.R")
 
 M_school <- socialmixr::contact_matrix(polymod, countries = "United Kingdom", 
                            age.limits = c(0, 1, seq(5,75,5)),
@@ -258,8 +258,6 @@ school_deaths$age_standard_school_open <- results_age_standard$d
 school_deaths$diff <- school_deaths$school_open - school_deaths$school_closed
 school_deaths$standard_diff <- school_deaths$age_standard_school_open - school_deaths$age_standard_school
 
-#write.csv(school_deaths, "/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/school_deaths.csv", row.names=F)
-
 ggplot(data=school_deaths, aes(x=i,y=diff*1000,
                               group=u,col=u)) +
   geom_line(lwd=1) + theme_minimal() + ylim(c(0,0.4)) +
@@ -302,9 +300,6 @@ for(i in 1:800){
 open_vec <- school_deaths$school_open
 school_sens$open <- rep(open_vec, each=40)
 school_sens$diff <- school_sens$open - school_sens$deaths
-
-#write.csv(school_sens, "/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/school_sens.csv", row.names=F)
-school_sens <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/school_sens.csv")
 
 # ggplot(school_sens[school_sens$x == 0.5 & school_sens$p == 1,],
 #        aes(x = imd, y = diff*1000, group = u, colour = u)) +
@@ -432,8 +427,6 @@ for(i in 1:400){
 open_vec <- school_deaths$school_open
 school_sens_day$open <- rep(open_vec, each=20)
 school_sens_day$diff <- school_sens_day$open - school_sens_day$deaths
-#write.csv(school_sens_day, "/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/school_sens_day.csv", row.names=F)
-school_sens_day <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/school_sens_day.csv")
 
 ggplot(school_sens_day[school_sens_day$x==1,],aes(x = imd, y = diff*1000, group = u, colour = u)) +
   geom_line(lwd=1) + theme_bw() + 

@@ -190,8 +190,6 @@ results_x$i <- unlist(results_x$i)
 results_x$d <- unlist(results_x$d)
 results_x$d_as <- unlist(results_x$d_as)
 results_x$x <- as.numeric(results_x$x)
-#write.csv(results_x, "/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/results_x.csv", row.names=F)
-results_x <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/results_x.csv")
 
 supp.labs <- c("Urban", "Rural")
 names(supp.labs) <- c(T,F)

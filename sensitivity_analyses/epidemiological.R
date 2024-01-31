@@ -3,7 +3,7 @@ require(deSolve)
 
 # ** RELOADING DATA **
 
-source("~/Desktop/MSc/Summer Project/R Code/loading_data.R")
+source("~/loading_data.R")
 
 # ** THE MODEL **
 
@@ -185,8 +185,6 @@ for(k in 1:200){
   epi_data$deaths[k] <- unlist(unname(vec[8]))
   epi_data$deaths_as[k] <- sum(epidemic_length_as(epi_data$imd[k],epi_data$urban[k],epi_data$a[k])[366,104:120]*age_standard$prop[1:17 + 17*(1-epi_data$urban[k])]/rural_age$Proportion[1:17 + 17*(epi_data$imd[k]-1) + 170*(1-epi_data$urban[k])])
 }
-#write.csv(epi_data, "/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/epi_sensitivity.csv", row.names=F)
-epi_data <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/epi_sensitivity.csv")
 
 epi_data_NA <- epi_data
 colnames(epi_data_NA)[7] <- "deaths"

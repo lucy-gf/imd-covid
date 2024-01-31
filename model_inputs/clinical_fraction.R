@@ -314,9 +314,6 @@ ggplot(final_v2_dataframe, aes(x=Ageband, y = clin_frac, group = IMD, color=IMD)
         axis.text.x = element_text(color=1),
         axis.text.y = element_text(color=1))
 
-        
-
-#write.csv(final_v2_dataframe, "/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/clin_frac.csv", row.names=F)
-#final_v2_dataframe <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/clin_frac.csv")
+    
 
 

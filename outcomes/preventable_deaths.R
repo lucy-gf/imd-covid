@@ -1,7 +1,7 @@
 
 # ** RELOADING DATA **
 
-source("~/Desktop/MSc/Summer Project/R Code/SEIRD model.R")
+source("~/SEIRD model.R")
 
 # ** THE MODEL **
 

@@ -5,12 +5,12 @@ library(readxl)
 # general health in each LSOA in England downloaded from 
 # https://www.ons.gov.uk/datasets/TS037/editions/2021/versions/1/filter-outputs/a7d10c27-59cc-42e1-9f5e-21cd3d60f49e#get-data
 
-lsoa_health <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/datasets/TS037-2021-1-filtered-2023-06-08T11_17_48Z.csv")
+lsoa_health <- read.csv("/TS037-2021-1-filtered-2023-06-08T11_17_48Z.csv")
 
 # sub-domains of deprivation scores for each LSOA:
 # File 2 at https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019
 
-lsoa_doms <- read_xlsx("/Users/lucy/Desktop/MSc/Summer Project/datasets/File_2_-_IoD2019_Domains_of_Deprivation.xlsx",sheet=2)
+lsoa_doms <- read_xlsx("/File_2_-_IoD2019_Domains_of_Deprivation.xlsx",sheet=2)
 
 lsoa_data <- data.frame(code = lsoa_doms$`LSOA code (2011)`,
                         name = lsoa_doms$`LSOA name (2011)`,
@@ -31,9 +31,6 @@ for(i in 1:nrow(lsoa_data)){
                                 lsoa_health$General.health..6.categories..Code %in% c(-8,1,2,3,4,5)])
     
 }
-
-#write.csv(lsoa_data, "/Users/lucy/Desktop/MSc/Summer Project/datasets/lsoa_data.csv", row.names=F)
-lsoa_data <- read.csv("/Users/lucy/Desktop/MSc/Summer Project/MY DATASETS/lsoa_data.csv")
 
 imd <- ggplot(lsoa_data, aes(x=imd, y=health_prev*100,color=imd)) +
   geom_point(size=0.75) + theme_minimal() + ylim(c(50,100)) +
@@ -77,8 +74,6 @@ living <- ggplot(lsoa_data, aes(x=living, y=health_prev*100,color=imd)) +
   labs(color = "IMD rank") + xlim(c(0,34753))
 
 # library(patchwork)
-png(filename="/Users/lucy/Desktop/LSHTM/Summer Project/Rough First Draft LaTeX/imd-components.png",
-    width = 200, height = 225, units='mm', res = 300)
 imd + income + employment + education + health + crime + 
   housing + living + plot_layout(nrow=4,ncol=2,guides='collect')
 dev.off()

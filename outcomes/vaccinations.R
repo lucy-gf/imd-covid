@@ -1,7 +1,7 @@
 # ** RELOADING DATA **
 
-source("~/Desktop/MSc/Summer Project/R Code/SEIRD model.R")
-source("~/Desktop/MSc/Summer Project/R Code/loading_data.R")
+source("~/SEIRD model.R")
+source("~/loading_data.R")
 
 vacc_dec <- 1 - 0.765
 cov <- 1

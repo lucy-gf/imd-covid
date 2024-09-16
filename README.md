@@ -1,4 +1,6 @@
-COVID-19 inequalities in England: a mathematical modelling study of transmission risk and clinical vulnerability by socioeconomic status 
+# COVID-19 inequalities in England: a mathematical modelling study of transmission risk and clinical vulnerability by socioeconomic status 
+
+https://doi.org/10.1186/s12916-024-03387-y
 
 Data files can be downloaded from /data/.
 
